@@ -2,18 +2,17 @@
 
 An AI-powered Learning Management System built using Django.
 
-## Features
+## Key Features
 
-- User Authentication
-- AI Courses
-- Quiz System
-- Auto Score Saving
-- Leaderboard
-- AI Chatbot
-- Dynamic Certificates
-- Dark Mode
-- User Profiles
-- Responsive Design
+- AI-powered learning platform
+- User authentication system
+- AI chatbot integration
+- Quiz and leaderboard system
+- Dynamic certificate generation
+- Dark mode UI
+- Course progress tracking
+- Profile image upload
+- Responsive dashboard
 
 ## Technologies Used
 
