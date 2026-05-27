@@ -27,7 +27,7 @@
 
     <!-- Favicon -->
     <link rel="icon"
-          href="{% static 'img/favicons/favicon.ico' %}">
+          href="{% static 'img/python-logo.png' %}">
 
     <style>
 
@@ -46,7 +46,7 @@
 
         /* LOGO */
         .navbar-brand img {
-            height: 200px !important;
+            height: 70px !important;
             width: auto;
             object-fit: contain;
             display: block;
@@ -111,9 +111,12 @@
         <div class="container">
 
             <!-- LOGO -->
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand d-flex align-items-center"
+               href="/">
+
                 <img src="{% static 'img/python-logo.png' %}"
                      alt="SkillForge">
+
             </a>
 
             <!-- MOBILE BUTTON -->
@@ -141,38 +144,36 @@
                     </li>
 
                     <!-- COURSES -->
-                   
-<li class="nav-item">
-    <a class="nav-link"
-       href="/courses/">
-        Courses
-    </a>
-</li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="/courses/">
+                            Courses
+                        </a>
+                    </li>
 
-<!-- CHATBOT -->
-<li class="nav-item">
+                    <!-- CHATBOT -->
+                    <li class="nav-item">
 
-    <a class="nav-link"
-       href="/chatbot/">
+                        <a class="nav-link"
+                           href="/chatbot/">
 
-        AI Chatbot
+                            AI Chatbot
 
-    </a>
+                        </a>
 
-</li>
-</li>
+                    </li>
 
-<!-- LEADERBOARD -->
-<li class="nav-item">
+                    <!-- LEADERBOARD -->
+                    <li class="nav-item">
 
-    <a class="nav-link"
-       href="/leaderboard/">
+                        <a class="nav-link"
+                           href="/leaderboard/">
 
-        Leaderboard
+                            Leaderboard
 
-    </a>
+                        </a>
 
-</li>
+                    </li>
 
                     {% if user.is_authenticated %}
 
@@ -283,7 +284,7 @@
                     <h5>Technology</h5>
 
                     <p>
-                        Django • Bootstrap 5 • AI • PostgreSQL
+                        Django • Bootstrap 5 • AI • SQLite
                     </p>
 
                 </div>
