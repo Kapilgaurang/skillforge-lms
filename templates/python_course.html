@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- TITLE -->
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Python Programming Course
+        </h1>
+
+        <p class="text-muted">
+            Beginner to Advanced Python Learning
+        </p>
+
+    </div>
+
+    <!-- COURSE CONTENT -->
+    <div class="row">
+
+        <!-- LEFT SIDE -->
+        <div class="col-md-8">
+
+            <!-- LEARNING -->
+            <div class="card shadow-sm border-0 p-4 mb-4">
+
+                <h3>
+                    What You Will Learn
+                </h3>
+
+                <ul class="mt-3">
+
+                    <li>Python Basics</li>
+                    <li>Variables and Data Types</li>
+                    <li>Loops and Conditions</li>
+                    <li>Functions</li>
+                    <li>Object Oriented Programming</li>
+                    <li>Django Basics</li>
+                    <li>Projects and Practice</li>
+
+                </ul>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+            <div class="card shadow-sm border-0 p-4 mb-4">
+
+                <h3>
+                    Course Description
+                </h3>
+
+                <p class="mt-3">
+
+                    Learn Python programming from beginner to advanced
+                    with practical coding examples and projects.
+
+                </p>
+
+            </div>
+
+            <!-- VIDEO -->
+            <div class="card shadow-sm border-0 p-4 mb-4">
+
+                <h3 class="mb-4">
+                    Video Lesson
+                </h3>
+
+                <a href="https://www.youtube.com/watch?v=kqtD5dpn9C8"
+                   target="_blank"
+                   class="btn btn-primary">
+
+                    Watch Python Video Lesson
+
+                </a>
+
+            </div>
+
+            <!-- QUIZ BUTTON -->
+            <div class="card shadow-sm border-0 p-4 mb-4 text-center">
+
+                <h3 class="mb-4">
+                    Python Quiz Generator
+                </h3>
+
+                <button class="btn btn-dark btn-lg"
+                        onclick="showQuiz()">
+
+                    Generate Python Quiz
+
+                </button>
+
+            </div>
+
+            <!-- QUIZ SECTION -->
+            <div id="quiz-section"
+                 class="card shadow-sm border-0 p-4 mb-4"
+                 style="display:none;">
+
+                <h2 class="mb-4 text-center">
+                    Python Quiz 🚀
+                </h2>
+
+                <form>
+
+                    <div class="mb-4">
+                        <h5>1. Python is?</h5>
+
+                        <input type="radio" name="q1"> Programming Language <br>
+                        <input type="radio" name="q1"> Browser <br>
+                        <input type="radio" name="q1"> Operating System
+                    </div>
+
+                    <div class="mb-4">
+                        <h5>2. Which symbol is used for comments?</h5>
+
+                        <input type="radio" name="q2"> # <br>
+                        <input type="radio" name="q2"> // <br>
+                        <input type="radio" name="q2"> %%
+                    </div>
+
+                    <div class="mb-4">
+                        <h5>3. Which keyword creates function?</h5>
+
+                        <input type="radio" name="q3"> def <br>
+                        <input type="radio" name="q3"> func <br>
+                        <input type="radio" name="q3"> define
+                    </div>
+
+                    <div class="mb-4">
+                        <h5>4. Python supports?</h5>
+
+                        <input type="radio" name="q4"> OOP <br>
+                        <input type="radio" name="q4"> Networking <br>
+                        <input type="radio" name="q4"> Both
+                    </div>
+
+                    <div class="mb-4">
+                        <h5>5. Which loop exists in Python?</h5>
+
+                        <input type="radio" name="q5"> for loop <br>
+                        <input type="radio" name="q5"> repeat loop <br>
+                        <input type="radio" name="q5"> iterate loop
+                    </div>
+
+                    <button type="button"
+                            class="btn btn-success btn-lg w-100"
+                            onclick="submitQuiz()">
+
+                        Submit Quiz
+
+                    </button>
+
+                </form>
+
+                <div id="quiz-result"
+                     class="alert alert-info mt-4 text-center"
+                     style="display:none;">
+
+                </div>
+
+            </div>
+
+            <!-- LESSONS -->
+            <div class="card shadow-sm border-0 p-4 mb-4">
+
+                <h3 class="mb-4">
+                    Course Lessons
+                </h3>
+
+                <ul class="list-group">
+
+                    <li class="list-group-item">
+                        Introduction to Python
+                    </li>
+
+                    <li class="list-group-item">
+                        Variables and Data Types
+                    </li>
+
+                    <li class="list-group-item">
+                        Loops and Conditions
+                    </li>
+
+                    <li class="list-group-item">
+                        Functions
+                    </li>
+
+                    <li class="list-group-item">
+                        Object Oriented Programming
+                    </li>
+
+                    <li class="list-group-item">
+                        Final Project
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 p-4 text-center">
+
+                <h2 class="text-primary">
+                    Free
+                </h2>
+
+                <p>
+                    Lifetime Access
+                </p>
+
+                <a href="/dashboard/"
+                   class="btn btn-primary w-100">
+
+                    Start Course
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showQuiz() {
+
+    document.getElementById("quiz-section").style.display = "block";
+
+}
+
+function submitQuiz() {
+
+    document.getElementById("quiz-result").style.display = "block";
+
+    document.getElementById("quiz-result").innerHTML =
+        "🎉 Python Quiz Submitted Successfully!";
+
+}
+
+</script>
+
+{% endblock %}

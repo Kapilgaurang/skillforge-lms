@@ -75,13 +75,9 @@ WSGI_APPLICATION = 'pythonbangla_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pythonbangla",
-        "USER": "mahmud",
-        "PASSWORD": "12345",
-        "HOST": "localhost",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -124,3 +120,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+LOGIN_REDIRECT_URL = '/dashboard/'
+
+LOGIN_URL = '/login/'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

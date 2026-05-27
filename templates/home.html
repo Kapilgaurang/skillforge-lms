@@ -2,122 +2,314 @@
 {% load static %}
 
 {% block content %}
-<div class="row mb-2">
-{% for topic in topic_category %}
-  <div class="col-md-6">
-    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-      <div class="card-body d-flex flex-column align-items-start">
-        <strong class="d-inline-block mb-2 color-gray">{{topic.title_english}}</strong>
-        <h3 class="mb-0">
-          <a id="id_{{topic.title_english|cut:' '}}" class="color{{ forloop.counter }}" href="#contents">{{topic.title_other}}</a>
-        </h3>
-        <div class="mb-2"></div>
-        <p class="card-text mb-auto card-overflow">
-        {{topic.short_description}}
-        </p>
-      </div>
-      <img class="card-img-right flex-auto d-none d-lg-block" src="{% static 'img/cards/' %}{{topic.image_name}}" alt="{{topic.title_english}}">
-    </div>
-  </div>
-{% endfor %}
-</div>
 
-<div id="contents" href="#"></div>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  {% for topic in topic_category %}
-  <li class="nav-item">
-      <a class="nav-link {% if forloop.counter == 1 %}active show{% endif %}" id="tab-{{ topic.title_english|cut:' ' }}" data-toggle="tab" href="#con-{{ topic.title_english|cut:' ' }}" role="tab" aria-controls="home"
-        aria-selected="true">{{ topic.title_other }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<!-- HERO SECTION -->
+<section class="py-5">
+    <div class="container">
 
-<div class="tab-content" id="myTabContent">
-{% for topic in topic_category %}
-  <div class="tab-pane fade {% if forloop.counter == 1 %}show active{% endif %}" id="con-{{ topic.title_english|cut:' ' }}" role="tabpanel" aria-labelledby="tab-{{ topic.title_english|cut:' ' }}">
-      {% if topic.topic_type == 'YT' %}
-      <!-- List & Videos Area -->
-      <div class="video-border p-3 p-md-5 rounded-right rounded-bottom">
-        <div role="tabpanel">
-          <div class="row">
-            <div class="col-4">
-              <div class="list-group" id="list-tab" role="tablist">
-                {% for tcontent in topic.contents %}
-                <a class="list-group-item list-group-item-action {% if forloop.counter == 1 %} active show {% endif %}" id="list-home-list" data-toggle="tab" href="{{ tcontent.video_id }}" role="tab"
-                  aria-controls="list-home" aria-selected="true">{{ tcontent.title }}{% if tcontent.tag %}<span style="display:block" class="badge text-primary">{{tcontent.tag}}</span>{% endif %}</a>
-                  <span id="sdesc" class="d-none">{{ tcontent.description }}</span>
-                {% endfor %}
-              </div>
+        <div class="row align-items-center">
+
+            <div class="col-md-6">
+
+                <h1 class="display-4 fw-bold mb-4">
+                    Learn Skills with AI Powered Education
+                </h1>
+
+                <p class="lead text-muted mb-4">
+                    SkillForge helps students learn Python, Django, Web Development
+                    and Artificial Intelligence through interactive courses and smart learning tools.
+                </p>
+
+                <a href="/courses/" class="btn btn-primary btn-lg me-3">
+                    Start Learning
+                </a>
+
+                <a href="/courses/" class="btn btn-outline-dark btn-lg">
+                    Explore Courses
+                </a>
+
             </div>
-            <!-- Youtube -->
-            <div id="youtube-container" class="col-8">
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                  <div class="videoWrapper">
-                    <iframe id="youtube-player-{{ topic.id }}" type="text/html" width="560" height="315" src="https://www.youtube.com/embed/{{topic.contents.0.video_id}}" frameborder="0"
-                      allowfullscreen></iframe>
-                  </div>
-                  <div class="mb-3"></div>
-                  <div id="youtube-description" class="youtube-description">
-                      <pre style="white-space: pre-wrap;">{{topic.contents.0.description}}</pre>
-                  </div>
-                </div>
-              </div>
+
+            <div class="col-md-6 text-center">
+
+                <img src="{% static 'img/pythonbangla.jpg' %}"
+                     class="img-fluid rounded shadow"
+                     alt="SkillForge">
+
             </div>
-          </div>
+
         </div>
-      </div>
 
-      {% elif topic.topic_type == 'UR' %}
-      <!-- Tutorial -->
-      <ul class="list-group rounded">
-          {% for tcontent in topic.contents %}
-          <li class="list-group-item">
-            <a href="{{ tcontent.url }}" target="_blank">{{ tcontent.title }}</a>
-          </li>
-          {% endfor %}
-      </ul>
-      <!-- End of Tutorial -->
-      {% endif %}
-  </div>
-{% endfor %}
-</div>
+    </div>
+</section>
+
+<!-- STATS SECTION -->
+<section class="py-5 bg-white rounded shadow-sm">
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-4">
+                <h2 class="fw-bold text-primary">50+</h2>
+                <p>Courses Available</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="fw-bold text-success">1000+</h2>
+                <p>Students Enrolled</p>
+            </div>
+
+            <div class="col-md-4">
+                <h2 class="fw-bold text-danger">24/7</h2>
+                <p>AI Learning Support</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURED COURSES -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Featured Courses</h2>
+            <p class="text-muted">
+                Explore our most popular learning programs
+            </p>
+        </div>
+
+        <div class="row">
+
+            <!-- CARD 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow h-100">
+
+                    <img src="{% static 'img/cards/python.png' %}"
+                         class="card-img-top"
+                         style="height:250px; object-fit:cover;"
+                         alt="Python">
+
+                    <div class="card-body">
+
+                        <h4 class="fw-bold">
+                            Python Programming
+                        </h4>
+
+                        <p class="text-muted">
+                            Learn Python from beginner to advanced with practical projects.
+                        </p>
+
+                        <a href="/python-course/" class="btn btn-primary">
+                            Start Course
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow h-100">
+
+                    <img src="{% static 'img/cards/django.png' %}"
+                         class="card-img-top"
+                         style="height:250px; object-fit:cover;"
+                         alt="Django">
+
+                    <div class="card-body">
+
+                        <h4 class="fw-bold">
+                            Django Full Stack
+                        </h4>
+
+                        <p class="text-muted">
+                            Build modern web applications using Django and Bootstrap.
+                        </p>
+
+                        <a href="/django-course/" class="btn btn-success">
+                            Start Course
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow h-100">
+
+                    <img src="{% static 'img/cards/ai.png' %}"
+                         class="card-img-top"
+                         style="height:250px; object-fit:cover;"
+                         alt="AI">
+
+                    <div class="card-body">
+
+                        <h4 class="fw-bold">
+                            Artificial Intelligence
+                        </h4>
+
+                        <p class="text-muted">
+                            Learn Machine Learning and AI fundamentals with hands-on examples.
+                        </p>
+
+                        <a href="/ai-course/" class="btn btn-danger">
+                            Start Course
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-5 bg-white rounded shadow-sm">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Why Choose SkillForge?
+            </h2>
+
+            <p class="text-muted">
+                Smart learning platform for modern students
+            </p>
+
+        </div>
+
+        <div class="row text-center">
+
+            <div class="col-md-4 mb-4">
+
+                <div class="p-4 shadow rounded h-100">
+
+                    <h3>🤖</h3>
+
+                    <h4 class="fw-bold mt-3">
+                        AI Tutor
+                    </h4>
+
+                    <p>
+                        Ask coding questions and get AI-powered explanations instantly.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="p-4 shadow rounded h-100">
+
+                    <h3>📚</h3>
+
+                    <h4 class="fw-bold mt-3">
+                        Interactive Courses
+                    </h4>
+
+                    <p>
+                        Learn with structured lessons, projects and quizzes.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="p-4 shadow rounded h-100">
+
+                    <h3>🏆</h3>
+
+                    <h4 class="fw-bold mt-3">
+                        Certificates
+                    </h4>
+
+                    <p>
+                        Earn certificates after completing your learning tracks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Student Testimonials
+            </h2>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card border-0 shadow p-4">
+
+                    <p>
+                        "SkillForge made learning Django very easy and practical."
+                    </p>
+
+                    <h6 class="fw-bold mt-3">
+                        - Rahul Sharma
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card border-0 shadow p-4">
+
+                    <p>
+                        "The AI tutor feature helped me understand Python concepts faster."
+                    </p>
+
+                    <h6 class="fw-bold mt-3">
+                        - Priya Verma
+                    </h6>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4 mb-4">
+
+                <div class="card border-0 shadow p-4">
+
+                    <p>
+                        "One of the best beginner-friendly coding platforms."
+                    </p>
+
+                    <h6 class="fw-bold mt-3">
+                        - Aman Gupta
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 {% endblock content %}
-
-{% block script %}
-<script src="{% static 'js/ba-linkify.min.js' %}"></script>
-<script>
-  {% for topic in topic_category %}
-  $("#id_{{topic.title_english|cut:' '}}").on('click', function (e) {
-    var tabId = "#tab-{{topic.title_english|cut:' '}}"
-    $(tabId).tab('show')
-    /*
-    $(".videoWrapper iframe").each(function(){
-        // $(this).addClass("invisible")
-        $(this).attr("class","invisible")
-    }) */
-    //$("#youtube-player-{{ topic.id }}").attr("class","visible")
-  })
-  {% endfor %}
-
-  $(function(){
-    $(".youtube-description pre").each(function(){
-      $(this).html(linkify($(this).text()))
-    })
-  }) 
-
-  $('#myTabContent #list-tab a').each(function (index) {
-      $(this).on('click', function (e) {
-          var href = $(this).attr('href')
-          var newUrl = "https://www.youtube.com/embed/" + href
-          $('#myTabContent .tab-pane:visible #youtube-container iframe').attr('src', newUrl)
-
-          var videoDesc = $(this).next().text()
-          videoDesc = linkify(videoDesc)
-          $('#myTabContent .tab-pane:visible #youtube-description pre').html(videoDesc)
-      })
-  })
-
-</script>
-{% endblock script %}

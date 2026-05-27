@@ -1,12 +1,19 @@
 from django.contrib import admin
 
-from .models import SocialLink
-from .models import TopicCategory
-from .models import TopicContent
-from .models import SiteOption
+from .models import (
+    SocialLink,
+    TopicCategory,
+    TopicContent,
+    SiteOption,
+    Profile
+)
 
-# Register your models here.
 admin.site.register(SocialLink)
+
 admin.site.register(TopicCategory)
+
 admin.site.register(TopicContent)
+
 admin.site.register(SiteOption)
+
+admin.site.register(Profile)

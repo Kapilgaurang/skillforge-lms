@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- TITLE -->
+    <div class="text-center mb-5">
+
+    <!-- PROFILE IMAGE -->
+    <img src="{{ user.profile.profile_image.url }}"
+         class="rounded-circle shadow mb-3"
+         width="140"
+         height="140"
+         style="object-fit:cover; border:5px solid white;">
+
+    <h1 class="fw-bold">
+        Welcome {{ user.username }} 🚀
+    </h1>
+
+    <p class="text-muted">
+        Manage your learning journey with SkillForge
+    </p>
+
+</div>
+
+    <!-- STATS -->
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 p-4 text-center">
+
+                <h2 class="text-primary">
+                    3
+                </h2>
+
+                <h5>
+                    Courses Enrolled
+                </h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 p-4 text-center">
+
+                <h2 class="text-success">
+                    65%
+                </h2>
+
+                <h5>
+                    Course Progress
+                </h5>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 p-4 text-center">
+
+                <h2 class="text-danger">
+                    2
+                </h2>
+
+                <h5>
+                    Certificates Earned
+                </h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="card shadow-sm border-0 p-4 mb-5">
+
+        <h3 class="mb-4">
+            Learning Progress
+        </h3>
+
+        <div class="mb-4">
+
+            <label class="fw-bold">
+                Python Programming
+            </label>
+
+            <div class="progress">
+
+                <div class="progress-bar bg-primary"
+                     style="width: 80%">
+
+                    80%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="mb-4">
+
+            <label class="fw-bold">
+                Django Full Stack
+            </label>
+
+            <div class="progress">
+
+                <div class="progress-bar bg-success"
+                     style="width: 60%">
+
+                    60%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <label class="fw-bold">
+                Artificial Intelligence
+            </label>
+
+            <div class="progress">
+
+                <div class="progress-bar bg-danger"
+                     style="width: 40%">
+
+                    40%
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CERTIFICATES BUTTON -->
+    <div class="card shadow-sm border-0 p-4 mb-5 text-center">
+
+        <h3 class="mb-4">
+            My Certificates
+        </h3>
+
+        <a href="/certificates/"
+           class="btn btn-success w-100">
+
+            View Certificates
+
+        </a>
+
+    </div>
+
+    <!-- RECENT ACTIVITY -->
+    <div class="card shadow-sm border-0 p-4">
+
+        <h3 class="mb-4">
+            Recent Activity
+        </h3>
+
+        <ul class="list-group list-group-flush">
+
+            <li class="list-group-item">
+                Completed Python Variables Lesson
+            </li>
+
+            <li class="list-group-item">
+                Watched Django Authentication Tutorial
+            </li>
+
+            <li class="list-group-item">
+                Started AI Fundamentals Module
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}

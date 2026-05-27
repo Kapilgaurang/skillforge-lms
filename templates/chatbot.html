@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <!-- CHATBOT CARD -->
+            <div class="card shadow-lg border-0">
+
+                <!-- HEADER -->
+                <div class="card-header bg-dark text-white text-center p-4">
+
+                    <h2>
+                        🤖 SkillForge AI Chatbot
+                    </h2>
+
+                    <p class="mb-0">
+                        Ask anything about Python, Django or AI
+                    </p>
+
+                </div>
+
+                <!-- BODY -->
+                <div class="card-body p-4">
+
+                    <!-- CHAT FORM -->
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+
+                            <textarea
+                                name="message"
+                                class="form-control"
+                                rows="4"
+                                placeholder="Ask your question here..."
+                                required></textarea>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+
+                            Send Message 🚀
+
+                        </button>
+
+                    </form>
+
+                    <!-- AI RESPONSE -->
+                    {% if reply %}
+
+                    <div class="alert alert-success mt-4">
+
+                        <h5>
+                            🤖 AI Reply:
+                        </h5>
+
+                        <p class="mb-0">
+                            {{ reply }}
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,118 +1,340 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ site_option.0.meta_description|default:"" }}">
-    <meta name="author" content="{{ site_option.0.meta_author|default:"" }}">
-    <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
 
-    <title>{{ site_option.0.title|default:"" }}</title>
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+        SkillForge - AI Powered LMS
+    </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/ui.css' %}"
+          rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'img/favicons/site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'img/favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon"
+          href="{% static 'img/favicons/favicon.ico' %}">
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
 
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+        body {
+            background: #f5f7fb;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.4s;
+        }
 
-    <link href="{% static 'css/ui.css' %}" rel="stylesheet">
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 0;
+        }
 
-    <!-- Facebook Open Graph -->
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ site_option.0.title|default:"" }}" />
-    <meta property="og:description" content="{{ site_option.0.meta_description|default:"" }}" />
-    <meta property="og:image" content="{% static 'img/pythonbangla.jpg' %}" />
+        /* LOGO */
+        .navbar-brand img {
+            height: 200px !important;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
 
+        /* NAV LINKS */
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
 
-    <!-- Header section from admin panel -->
-    {{ site_option.0.header|safe }}
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
+        /* BUTTONS */
+        .btn-custom {
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            min-height: 80vh;
+            padding-top: 30px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: white;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #666;
+        }
+
+    </style>
+
 </head>
 
-<body>
-    <div class="container">
-        <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <!--
-          <div class="col-4 pt-1">
-            <a class="text-muted" href="#">Subscribe</a>
-          </div> -->
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="/">
-                        <img src="{% static 'img/python-logo.png' %}" alt="পাইথন বাংলা" height="80">
-                    </a>
-                </div>
+<body id="body">
+
+    <!-- DARK MODE BUTTON -->
+    <button onclick="toggleDarkMode()"
+            class="btn btn-dark position-fixed"
+            style="top:20px; right:20px; z-index:9999;">
+
+        🌙 Dark Mode
+
+    </button>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/python-logo.png' %}"
+                     alt="SkillForge">
+            </a>
+
+            <!-- MOBILE BUTTON -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- NAVBAR LINKS -->
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <!-- HOME -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="/">
+                            Home
+                        </a>
+                    </li>
+
+                    <!-- COURSES -->
+                   
+<li class="nav-item">
+    <a class="nav-link"
+       href="/courses/">
+        Courses
+    </a>
+</li>
+
+<!-- CHATBOT -->
+<li class="nav-item">
+
+    <a class="nav-link"
+       href="/chatbot/">
+
+        AI Chatbot
+
+    </a>
+
+</li>
+</li>
+
+<!-- LEADERBOARD -->
+<li class="nav-item">
+
+    <a class="nav-link"
+       href="/leaderboard/">
+
+        Leaderboard
+
+    </a>
+
+</li>
+
+                    {% if user.is_authenticated %}
+
+                    <!-- USERNAME -->
+                    <li class="nav-item">
+
+                        <span class="nav-link">
+                            Hello, {{ user.username }}
+                        </span>
+
+                    </li>
+
+                    <!-- DASHBOARD -->
+                    <li class="nav-item">
+
+                        <a class="btn btn-primary btn-custom ms-3"
+                           href="/dashboard/">
+
+                            Dashboard
+
+                        </a>
+
+                    </li>
+
+                    <!-- LOGOUT -->
+                    <li class="nav-item">
+
+                        <form action="/logout/"
+                              method="POST"
+                              class="d-inline">
+
+                            {% csrf_token %}
+
+                            <button type="submit"
+                                    class="btn btn-danger btn-custom ms-2">
+
+                                Logout
+
+                            </button>
+
+                        </form>
+
+                    </li>
+
+                    {% else %}
+
+                    <!-- LOGIN -->
+                    <li class="nav-item">
+
+                        <a class="btn btn-primary btn-custom ms-3"
+                           href="/login/">
+
+                            Login
+
+                        </a>
+
+                    </li>
+
+                    <!-- REGISTER -->
+                    <li class="nav-item">
+
+                        <a class="btn btn-success btn-custom ms-2"
+                           href="/register/">
+
+                            Register
+
+                        </a>
+
+                    </li>
+
+                    {% endif %}
+
+                </ul>
+
             </div>
-        </header>
-        
-        <div class="nav-scroller py-1 mb-2" style="overflow:hidden;">
-                <div class="float-left"><nav class="nav">
-                        <a class="p-2 text-muted" href="/">Home</a>
-                    </nav></div>
-                <div class="float-right">
-                    <nav class="nav d-flex justify-content-end">
-                        {% for s in social %}
-                         <a class="p-2 text-muted" href="{{s.url}}" target="_blank"><img src="{% static 'img/social/icon-'%}{{s.name}}.png" alt="{{s.name|title}}" height="30"></a>
-                        {% endfor %}
-                    </nav>
-                </div>
+
         </div>
+
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container main-container">
 
         {% block content %}
         {% endblock %}
+
     </div>
-    
-    <div class="mb-4"></div>
 
-    <footer class="blog-footer">
-        <div class="row">
-            <div class="col-sm-4">
-                <p>Powered By <br>
-                    <a href="https://www.djangoproject.com" target="_blank">Django</a> |
-                    <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> |
-                    <a href="https://www.postgresql.org" target="_blank">PostgreSQL</a>
-                    <br>
-                    <a href="https://jquery.com/" target="_blank">JQuery</a> | 
-                    <a href="https://github.com/cowboy/javascript-linkify" target="_blank">linkify</a>
+    <!-- FOOTER -->
+    <footer class="footer">
 
-                </p>
+        <div class="container">
+
+            <div class="row text-center">
+
+                <div class="col-md-4 mb-3">
+
+                    <h5>SkillForge</h5>
+
+                    <p>
+                        AI Powered Learning Management System
+                    </p>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <h5>Technology</h5>
+
+                    <p>
+                        Django • Bootstrap 5 • AI • PostgreSQL
+                    </p>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <h5>Developer</h5>
+
+                    <p>
+                        Developed by Gaurang Kapil
+                    </p>
+
+                </div>
+
             </div>
-            <div class="col-sm-4">
-                <p>
-                    Developed by
-                    <a href="https://twitter.com/mahmudahsan" target="_blank">Mahmud Ahsan</a>
-                    <br> © {% now "Y" as current_year %} {{ current_year }}
-                    <a href="https://twitter.com/mahmudahsan" target="_blank">Mahmud Ahsan</a>
-                </p>
-            </div>
-            <div class="col-sm-4">
-                <p>
-                    <a href="#">Back to top</a>
-                </p>
-            </div>
+
         </div>
-    </footer>
-    
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <script src="{% static 'js/vendor/holder.min.js' %}"></script>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DARK MODE SCRIPT -->
+    <script>
+
+        function toggleDarkMode() {
+
+            let body = document.getElementById("body");
+
+            if (body.style.backgroundColor == "black") {
+
+                body.style.backgroundColor = "#f5f7fb";
+                body.style.color = "black";
+
+            }
+
+            else {
+
+                body.style.backgroundColor = "black";
+                body.style.color = "white";
+
+            }
+
+        }
+
+    </script>
 
     {% block script %}
     {% endblock %}
+
 </body>
+
 </html>

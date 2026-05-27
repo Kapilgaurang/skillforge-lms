@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- PAGE TITLE -->
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Our Courses
+        </h1>
+
+        <p class="text-muted">
+            Explore AI-powered learning programs
+        </p>
+
+    </div>
+
+    <!-- COURSE CARDS -->
+    <div class="row g-4">
+
+        <!-- PYTHON -->
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200&auto=format&fit=crop"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+
+                <div class="card-body">
+
+                    <h3 class="card-title">
+                        Python Programming
+                    </h3>
+
+                    <p class="card-text">
+                        Learn Python from beginner to advanced with projects.
+                    </p>
+
+                    <a href="/python-course/" class="btn btn-primary">
+                        Start Learning
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DJANGO -->
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+
+                <div class="card-body">
+
+                    <h3 class="card-title">
+                        Django Full Stack
+                    </h3>
+
+                    <p class="card-text">
+                        Build powerful web applications using Django.
+                    </p>
+
+                    <a href="/django-course/" class="btn btn-success">
+                        Start Learning
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- AI -->
+        <div class="col-md-4">
+
+            <div class="card shadow-sm border-0 h-100">
+
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+                     class="card-img-top"
+                     style="height:220px; object-fit:cover;">
+
+                <div class="card-body">
+
+                    <h3 class="card-title">
+                        Artificial Intelligence
+                    </h3>
+
+                    <p class="card-text">
+                        Learn Machine Learning and AI fundamentals.
+                    </p>
+
+                    <a href="/ai-course/" class="btn btn-danger">
+                        Start Learning
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
