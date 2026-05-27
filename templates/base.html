@@ -128,13 +128,21 @@
         <div class="container">
 
             <!-- LOGO -->
-            <a class="navbar-brand d-flex align-items-center"
-               href="/">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
 
-                <img src="{% static 'img/python-logo.png' %}"
-                     alt="SkillForge Logo">
+    <img src="{% static 'img/python-logo.png' %}"
+         alt="SkillForge"
+         style="
+            height: 55px;
+            width: auto;
+            margin-right: 10px;
+         ">
 
-            </a>
+    <span class="fs-4 fw-bold text-dark">
+        SkillForge
+    </span>
+
+</a>
 
             <!-- MOBILE BUTTON -->
             <button class="navbar-toggler"
