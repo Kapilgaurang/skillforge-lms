@@ -24,6 +24,20 @@ An AI-powered Learning Management System built using Django.
 - Bootstrap
 - SQLite
 
+## Project Screenshots
+
+### Home Page
+![Home](Screenshot1.png)
+
+### Dashboard
+![Dashboard](Screenshot2.png)
+
+### AI Chatbot
+![Chatbot](Screenshot3.png)
+
+### Leaderboard
+![Leaderboard](Screenshot4.png)
+
 ## Developed By
 
 Gaurang Kapil
