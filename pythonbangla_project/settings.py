@@ -23,9 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4*%$d)*xti$m5&*n%ww6r7#t2+v*e#e#18d$q#1k0zo_p^!e-2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'skillforge-lms-dg7v.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 
 # Application definition
