@@ -22,7 +22,7 @@
           rel="stylesheet">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
     <!-- Favicon -->
@@ -35,45 +35,41 @@
             background: #f5f7fb;
             font-family: 'Poppins', sans-serif;
             transition: 0.4s;
+            overflow-x: hidden;
         }
 
         /* NAVBAR */
         .navbar {
             background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 10px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            padding: 14px 0;
         }
 
         /* LOGO */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
         .navbar-brand img {
-            height: 70px !important;
+            height: 85px;
             width: auto;
             object-fit: contain;
-            display: block;
         }
 
-        /* HERO IMAGE */
-        .hero-image {
-            width: 100%;
-            max-width: 420px;
-            height: auto;
-            border-radius: 20px;
-            object-fit: cover;
-        }
-
-        /* COURSE CARD IMAGES */
-        .course-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px 12px 0 0;
+        .logo-text {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111827;
+            margin: 0;
         }
 
         /* NAV LINKS */
         .nav-link {
-            font-weight: 500;
-            color: #333 !important;
-            margin-left: 15px;
+            font-weight: 600;
+            color: #222 !important;
+            margin-left: 18px;
             transition: 0.3s;
         }
 
@@ -83,28 +79,81 @@
 
         /* BUTTONS */
         .btn-custom {
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-weight: 500;
+            border-radius: 12px;
+            padding: 10px 22px;
+            font-weight: 600;
+        }
+
+        /* HERO IMAGE */
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        /* COURSE IMAGE */
+        .course-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
         }
 
         /* MAIN CONTENT */
         .main-container {
             min-height: 80vh;
-            padding-top: 30px;
+            padding-top: 40px;
         }
 
         /* FOOTER */
         .footer {
             background: white;
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 40px 0;
+            margin-top: 60px;
             border-top: 1px solid #ddd;
         }
 
+        .footer h5 {
+            font-weight: 700;
+        }
+
         .footer p {
-            margin: 0;
             color: #666;
+            margin-top: 10px;
+        }
+
+        /* DARK MODE */
+        .dark-mode {
+            background: #111827 !important;
+            color: white !important;
+        }
+
+        .dark-mode .navbar {
+            background: #1f2937 !important;
+        }
+
+        .dark-mode .footer {
+            background: #1f2937 !important;
+        }
+
+        .dark-mode .logo-text,
+        .dark-mode .nav-link {
+            color: white !important;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+
+            .navbar-brand img {
+                height: 65px;
+            }
+
+            .logo-text {
+                font-size: 24px;
+            }
+
         }
 
     </style>
@@ -116,7 +165,7 @@
     <!-- DARK MODE BUTTON -->
     <button onclick="toggleDarkMode()"
             class="btn btn-dark position-fixed"
-            style="top:20px; right:20px; z-index:9999;">
+            style="top:20px; right:20px; z-index:9999; border-radius:12px;">
 
         🌙 Dark Mode
 
@@ -128,21 +177,17 @@
         <div class="container">
 
             <!-- LOGO -->
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
+            <a class="navbar-brand"
+               href="/">
 
-    <img src="{% static 'img/python-logo.png' %}"
-         alt="SkillForge"
-         style="
-            height: 55px;
-            width: auto;
-            margin-right: 10px;
-         ">
+                <img src="{% static 'img/python-logo.png' %}"
+                     alt="SkillForge">
 
-    <span class="fs-4 fw-bold text-dark">
-        SkillForge
-    </span>
+                <h2 class="logo-text">
+                    SkillForge
+                </h2>
 
-</a>
+            </a>
 
             <!-- MOBILE BUTTON -->
             <button class="navbar-toggler"
@@ -154,13 +199,12 @@
 
             </button>
 
-            <!-- NAVBAR LINKS -->
+            <!-- NAV LINKS -->
             <div class="collapse navbar-collapse"
                  id="navbarNav">
 
                 <ul class="navbar-nav ms-auto align-items-center">
 
-                    <!-- HOME -->
                     <li class="nav-item">
                         <a class="nav-link"
                            href="/">
@@ -168,7 +212,6 @@
                         </a>
                     </li>
 
-                    <!-- COURSES -->
                     <li class="nav-item">
                         <a class="nav-link"
                            href="/courses/">
@@ -176,42 +219,28 @@
                         </a>
                     </li>
 
-                    <!-- CHATBOT -->
                     <li class="nav-item">
-
                         <a class="nav-link"
                            href="/chatbot/">
-
                             AI Chatbot
-
                         </a>
-
                     </li>
 
-                    <!-- LEADERBOARD -->
                     <li class="nav-item">
-
                         <a class="nav-link"
                            href="/leaderboard/">
-
                             Leaderboard
-
                         </a>
-
                     </li>
 
                     {% if user.is_authenticated %}
 
-                    <!-- USERNAME -->
                     <li class="nav-item">
-
                         <span class="nav-link">
                             Hello, {{ user.username }}
                         </span>
-
                     </li>
 
-                    <!-- DASHBOARD -->
                     <li class="nav-item">
 
                         <a class="btn btn-primary btn-custom ms-3"
@@ -223,7 +252,6 @@
 
                     </li>
 
-                    <!-- LOGOUT -->
                     <li class="nav-item">
 
                         <form action="/logout/"
@@ -245,7 +273,6 @@
 
                     {% else %}
 
-                    <!-- LOGIN -->
                     <li class="nav-item">
 
                         <a class="btn btn-primary btn-custom ms-3"
@@ -257,7 +284,6 @@
 
                     </li>
 
-                    <!-- REGISTER -->
                     <li class="nav-item">
 
                         <a class="btn btn-success btn-custom ms-2"
@@ -294,9 +320,11 @@
 
             <div class="row text-center">
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-4">
 
-                    <h5>SkillForge</h5>
+                    <h5>
+                        SkillForge
+                    </h5>
 
                     <p>
                         AI Powered Learning Management System
@@ -304,19 +332,23 @@
 
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-4">
 
-                    <h5>Technology</h5>
+                    <h5>
+                        Technology
+                    </h5>
 
                     <p>
-                        Django • Bootstrap 5 • AI • SQLite
+                        Django • Bootstrap • AI • SQLite
                     </p>
 
                 </div>
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-4">
 
-                    <h5>Developer</h5>
+                    <h5>
+                        Developer
+                    </h5>
 
                     <p>
                         Developed by Gaurang Kapil
@@ -333,26 +365,12 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- DARK MODE SCRIPT -->
+    <!-- DARK MODE -->
     <script>
 
         function toggleDarkMode() {
 
-            let body = document.getElementById("body");
-
-            if (body.style.backgroundColor == "black") {
-
-                body.style.backgroundColor = "#f5f7fb";
-                body.style.color = "black";
-
-            }
-
-            else {
-
-                body.style.backgroundColor = "black";
-                body.style.color = "white";
-
-            }
+            document.body.classList.toggle("dark-mode");
 
         }
 
