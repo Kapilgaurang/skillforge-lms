@@ -9,15 +9,17 @@
 
         <div class="row align-items-center">
 
+            <!-- LEFT SIDE -->
             <div class="col-md-6">
 
-                <h1 class="display-4 fw-bold mb-4">
+                <h1 class="display-3 fw-bold mb-4">
                     Learn Skills with AI Powered Education
                 </h1>
 
                 <p class="lead text-muted mb-4">
-                    SkillForge helps students learn Python, Django, Web Development
-                    and Artificial Intelligence through interactive courses and smart learning tools.
+                    SkillForge helps students learn Python, Django,
+                    Web Development and Artificial Intelligence
+                    through interactive courses and smart learning tools.
                 </p>
 
                 <a href="/courses/" class="btn btn-primary btn-lg me-3">
@@ -30,11 +32,12 @@
 
             </div>
 
+            <!-- RIGHT SIDE IMAGE -->
             <div class="col-md-6 text-center">
 
                 <img src="{% static 'img/pythonbangla.jpg' %}"
-                     class="img-fluid rounded shadow"
-                     style="max-height:400px;"
+                     class="img-fluid rounded shadow-lg"
+                     style="max-height:420px; object-fit:cover;"
                      alt="SkillForge">
 
             </div>
@@ -45,24 +48,24 @@
 </section>
 
 <!-- STATS SECTION -->
-<section class="py-5 bg-white rounded shadow-sm">
+<section class="py-5">
     <div class="container">
 
-        <div class="row text-center">
+        <div class="row bg-white shadow rounded text-center p-5">
 
             <div class="col-md-4">
                 <h2 class="fw-bold text-primary">50+</h2>
-                <p>Courses Available</p>
+                <p class="fw-semibold">Courses Available</p>
             </div>
 
             <div class="col-md-4">
                 <h2 class="fw-bold text-success">1000+</h2>
-                <p>Students Enrolled</p>
+                <p class="fw-semibold">Students Enrolled</p>
             </div>
 
             <div class="col-md-4">
                 <h2 class="fw-bold text-danger">24/7</h2>
-                <p>AI Learning Support</p>
+                <p class="fw-semibold">AI Learning Support</p>
             </div>
 
         </div>
@@ -75,31 +78,38 @@
     <div class="container">
 
         <div class="text-center mb-5">
-            <h2 class="fw-bold">Featured Courses</h2>
+
+            <h1 class="fw-bold">
+                Featured Courses
+            </h1>
+
             <p class="text-muted">
                 Explore our most popular learning programs
             </p>
+
         </div>
 
         <div class="row">
 
             <!-- CARD 1 -->
             <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow h-100">
 
-                    <img src="{% static 'img/pythonbangla.jpg' %}"
+                <div class="card border-0 shadow-lg h-100">
+
+                    <img src="{% static 'img/cards/py-web.png' %}"
                          class="card-img-top"
                          style="height:250px; object-fit:cover;"
-                         alt="Python">
+                         alt="Python Programming">
 
                     <div class="card-body">
 
-                        <h4 class="fw-bold">
+                        <h3 class="fw-bold">
                             Python Programming
-                        </h4>
+                        </h3>
 
                         <p class="text-muted">
-                            Learn Python from beginner to advanced with practical projects.
+                            Learn Python from beginner to advanced
+                            with real-world practical projects.
                         </p>
 
                         <a href="/python-course/" class="btn btn-primary">
@@ -107,26 +117,30 @@
                         </a>
 
                     </div>
+
                 </div>
+
             </div>
 
             <!-- CARD 2 -->
             <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow h-100">
 
-                    <img src="{% static 'img/pythonbangla.jpg' %}"
+                <div class="card border-0 shadow-lg h-100">
+
+                    <img src="{% static 'img/cards/django.png' %}"
                          class="card-img-top"
                          style="height:250px; object-fit:cover;"
-                         alt="Django">
+                         alt="Django Course">
 
                     <div class="card-body">
 
-                        <h4 class="fw-bold">
+                        <h3 class="fw-bold">
                             Django Full Stack
-                        </h4>
+                        </h3>
 
                         <p class="text-muted">
-                            Build modern web applications using Django and Bootstrap.
+                            Build modern web applications using
+                            Django, Bootstrap and backend APIs.
                         </p>
 
                         <a href="/django-course/" class="btn btn-success">
@@ -134,26 +148,30 @@
                         </a>
 
                     </div>
+
                 </div>
+
             </div>
 
             <!-- CARD 3 -->
             <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow h-100">
 
-                    <img src="{% static 'img/pythonbangla.jpg' %}"
+                <div class="card border-0 shadow-lg h-100">
+
+                    <img src="{% static 'img/cards/ai.png' %}"
                          class="card-img-top"
                          style="height:250px; object-fit:cover;"
-                         alt="AI">
+                         alt="AI Course">
 
                     <div class="card-body">
 
-                        <h4 class="fw-bold">
+                        <h3 class="fw-bold">
                             Artificial Intelligence
-                        </h4>
+                        </h3>
 
                         <p class="text-muted">
-                            Learn Machine Learning and AI fundamentals with hands-on examples.
+                            Learn Machine Learning and Artificial
+                            Intelligence with hands-on projects.
                         </p>
 
                         <a href="/ai-course/" class="btn btn-danger">
@@ -161,7 +179,9 @@
                         </a>
 
                     </div>
+
                 </div>
+
             </div>
 
         </div>
@@ -169,73 +189,89 @@
     </div>
 </section>
 
-<!-- FEATURES -->
-<section class="py-5 bg-white rounded shadow-sm">
+<!-- FEATURES SECTION -->
+<section class="py-5">
     <div class="container">
 
-        <div class="text-center mb-5">
+        <div class="bg-white rounded shadow p-5">
 
-            <h2 class="fw-bold">
-                Why Choose SkillForge?
-            </h2>
+            <div class="text-center mb-5">
 
-            <p class="text-muted">
-                Smart learning platform for modern students
-            </p>
+                <h1 class="fw-bold">
+                    Why Choose SkillForge?
+                </h1>
 
-        </div>
-
-        <div class="row text-center">
-
-            <div class="col-md-4 mb-4">
-
-                <div class="p-4 shadow rounded h-100">
-
-                    <h3>🤖</h3>
-
-                    <h4 class="fw-bold mt-3">
-                        AI Tutor
-                    </h4>
-
-                    <p>
-                        Ask coding questions and get AI-powered explanations instantly.
-                    </p>
-
-                </div>
+                <p class="text-muted">
+                    Smart learning platform for modern students
+                </p>
 
             </div>
 
-            <div class="col-md-4 mb-4">
+            <div class="row text-center">
 
-                <div class="p-4 shadow rounded h-100">
+                <!-- FEATURE 1 -->
+                <div class="col-md-4 mb-4">
 
-                    <h3>📚</h3>
+                    <div class="p-4 shadow rounded h-100">
 
-                    <h4 class="fw-bold mt-3">
-                        Interactive Courses
-                    </h4>
+                        <div class="display-4">
+                            🤖
+                        </div>
 
-                    <p>
-                        Learn with structured lessons, projects and quizzes.
-                    </p>
+                        <h3 class="fw-bold mt-3">
+                            AI Tutor
+                        </h3>
+
+                        <p class="text-muted">
+                            Ask coding questions and get instant
+                            AI-powered explanations anytime.
+                        </p>
+
+                    </div>
 
                 </div>
 
-            </div>
+                <!-- FEATURE 2 -->
+                <div class="col-md-4 mb-4">
 
-            <div class="col-md-4 mb-4">
+                    <div class="p-4 shadow rounded h-100">
 
-                <div class="p-4 shadow rounded h-100">
+                        <div class="display-4">
+                            📚
+                        </div>
 
-                    <h3>🏆</h3>
+                        <h3 class="fw-bold mt-3">
+                            Interactive Courses
+                        </h3>
 
-                    <h4 class="fw-bold mt-3">
-                        Certificates
-                    </h4>
+                        <p class="text-muted">
+                            Learn with projects, quizzes,
+                            assignments and coding exercises.
+                        </p>
 
-                    <p>
-                        Earn certificates after completing your learning tracks.
-                    </p>
+                    </div>
+
+                </div>
+
+                <!-- FEATURE 3 -->
+                <div class="col-md-4 mb-4">
+
+                    <div class="p-4 shadow rounded h-100">
+
+                        <div class="display-4">
+                            🏆
+                        </div>
+
+                        <h3 class="fw-bold mt-3">
+                            Certificates
+                        </h3>
+
+                        <p class="text-muted">
+                            Earn professional certificates after
+                            successfully completing courses.
+                        </p>
+
+                    </div>
 
                 </div>
 
