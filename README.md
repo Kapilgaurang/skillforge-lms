@@ -27,16 +27,16 @@ An AI-powered Learning Management System built using Django.
 ## Project Screenshots
 
 ### Home Page
-![Home](Screenshot1.png)
+![Home](Screenshot%202026-05-28%20011106.png)
 
 ### Dashboard
-![Dashboard](Screenshot2.png)
+![Dashboard](Screenshot%202026-05-28%20011116.png)
 
 ### AI Chatbot
-![Chatbot](Screenshot3.png)
+![Chatbot](Screenshot%202026-05-28%20011130.png)
 
 ### Leaderboard
-![Leaderboard](Screenshot4.png)
+![Leaderboard](Screenshot%202026-05-28%20011148.png)
 
 ## Developed By
 
