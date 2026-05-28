@@ -49,7 +49,7 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .navbar-brand img {
@@ -59,7 +59,7 @@
         }
 
         .logo-text {
-            font-size: 34px;
+            font-size: 42px;
             font-weight: 800;
             color: #111827;
             margin: 0;
@@ -81,6 +81,13 @@
         .btn-custom {
             border-radius: 12px;
             padding: 10px 22px;
+            font-weight: 600;
+        }
+
+        /* DARK MODE BUTTON */
+        .dark-mode-btn {
+            border-radius: 12px;
+            padding: 10px 18px;
             font-weight: 600;
         }
 
@@ -143,15 +150,42 @@
             color: white !important;
         }
 
-        /* RESPONSIVE */
+        /* MOBILE RESPONSIVE */
         @media(max-width:768px){
 
             .navbar-brand img {
-                height: 65px;
+                height: 55px;
             }
 
             .logo-text {
-                font-size: 24px;
+                font-size: 28px;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                padding-top: 20px;
+            }
+
+            .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+
+            .mobile-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 20px;
+                width: 100%;
+            }
+
+            .mobile-buttons .btn,
+            .mobile-buttons form button {
+                width: 100%;
+            }
+
+            .dark-mode-btn {
+                width: 100%;
             }
 
         }
@@ -161,15 +195,6 @@
 </head>
 
 <body id="body">
-
-    <!-- DARK MODE BUTTON -->
-    <button onclick="toggleDarkMode()"
-            class="btn btn-dark position-fixed"
-            style="top:20px; right:20px; z-index:9999; border-radius:12px;">
-
-        🌙 Dark Mode
-
-    </button>
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
@@ -189,7 +214,7 @@
 
             </a>
 
-            <!-- MOBILE BUTTON -->
+            <!-- MOBILE TOGGLE -->
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -199,11 +224,11 @@
 
             </button>
 
-            <!-- NAV LINKS -->
+            <!-- NAVBAR CONTENT -->
             <div class="collapse navbar-collapse"
                  id="navbarNav">
 
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
 
                     <li class="nav-item">
                         <a class="nav-link"
@@ -233,69 +258,82 @@
                         </a>
                     </li>
 
-                    {% if user.is_authenticated %}
+                    <!-- MOBILE BUTTONS -->
+                    <div class="mobile-buttons d-lg-flex align-items-center">
 
-                    <li class="nav-item">
-                        <span class="nav-link">
-                            Hello, {{ user.username }}
-                        </span>
-                    </li>
+                        <!-- DARK MODE -->
+                        <button onclick="toggleDarkMode()"
+                                class="btn btn-dark dark-mode-btn ms-lg-3">
 
-                    <li class="nav-item">
+                            🌙 Dark Mode
 
-                        <a class="btn btn-primary btn-custom ms-3"
-                           href="/dashboard/">
+                        </button>
 
-                            Dashboard
+                        {% if user.is_authenticated %}
 
-                        </a>
+                        <li class="nav-item">
+                            <span class="nav-link">
+                                Hello, {{ user.username }}
+                            </span>
+                        </li>
 
-                    </li>
+                        <li class="nav-item">
 
-                    <li class="nav-item">
+                            <a class="btn btn-primary btn-custom ms-lg-3"
+                               href="/dashboard/">
 
-                        <form action="/logout/"
-                              method="POST"
-                              class="d-inline">
+                                Dashboard
 
-                            {% csrf_token %}
+                            </a>
 
-                            <button type="submit"
-                                    class="btn btn-danger btn-custom ms-2">
+                        </li>
 
-                                Logout
+                        <li class="nav-item">
 
-                            </button>
+                            <form action="/logout/"
+                                  method="POST"
+                                  class="d-inline">
 
-                        </form>
+                                {% csrf_token %}
 
-                    </li>
+                                <button type="submit"
+                                        class="btn btn-danger btn-custom ms-lg-2">
 
-                    {% else %}
+                                    Logout
 
-                    <li class="nav-item">
+                                </button>
 
-                        <a class="btn btn-primary btn-custom ms-3"
-                           href="/login/">
+                            </form>
 
-                            Login
+                        </li>
 
-                        </a>
+                        {% else %}
 
-                    </li>
+                        <li class="nav-item">
 
-                    <li class="nav-item">
+                            <a class="btn btn-primary btn-custom ms-lg-3"
+                               href="/login/">
 
-                        <a class="btn btn-success btn-custom ms-2"
-                           href="/register/">
+                                Login
 
-                            Register
+                            </a>
 
-                        </a>
+                        </li>
 
-                    </li>
+                        <li class="nav-item">
 
-                    {% endif %}
+                            <a class="btn btn-success btn-custom ms-lg-2"
+                               href="/register/">
+
+                                Register
+
+                            </a>
+
+                        </li>
+
+                        {% endif %}
+
+                    </div>
 
                 </ul>
 
